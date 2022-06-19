@@ -27,7 +27,7 @@ import streamlit as st
 import emoji 
 
 #Input Data and Data Cleaning
-data = pd.read_csv('./mood-app-python/Data Mood Analysis.csv')
+data = pd.read_csv('../Data Mood Analysis.csv')
 
 stop_words = stopwords.words('english')
 cleaned_data = []
