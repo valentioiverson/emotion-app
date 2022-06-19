@@ -76,7 +76,7 @@ reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
 def decode_review(text):
     return ' '.join([reverse_word_index.get(i, '?') for i in text])
 
-model = tf.keras.models.load_model(filepath='./mood-app-python/Mood Analysis Model.h5')
+model = tf.keras.models.load_model(filepath='./emotion-app/Mood Analysis Model.h5')
 
 emotions_emoji_dict = {"joy" : emoji.emojize(":joy:"), "sadness" : emoji.emojize(":cry:"), "anger" : emoji.emojize(":angry:"), "fear" : emoji.emojize(":fearful:"), "love" :emoji.emojize(":heart:") , "surprise" : emoji.emojize(":open_mouth:") }
 
