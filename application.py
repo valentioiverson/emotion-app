@@ -29,12 +29,6 @@ import emoji
 #Input Data and Data Cleaning
 data = pd.read_csv('./mood-app-python/Data Mood Analysis.csv')
 
-# Exploratory Data Analysis
-
-# data.head()
-# data.shape()
-# data.info() 
-
 stop_words = stopwords.words('english')
 cleaned_data = []
 
@@ -82,33 +76,6 @@ reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])
 def decode_review(text):
     return ' '.join([reverse_word_index.get(i, '?') for i in text])
 
-print(decode_review(padded[3]))
-print(X_train.values[3])
-
-# model = Sequential()
-# model.add(Embedding(vocab_size,embedding_dim, input_length=max_length))
-# model.add(Bidirectional(LSTM(128, dropout=0.2,recurrent_dropout=0.2)))
-# model.add(Dense(6, activation='softmax'))
-
-# model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-# model.summary()
-
-# callback = EarlyStopping(
-#     monitor="val_loss",
-#     patience=2,
-#     restore_best_weights=True,
-# )
-
-# history = model.fit(padded,
-#                     y_train,
-#                     validation_split=0.1,
-#                     batch_size=256,
-#                     epochs=10,
-#                     callbacks=[callback]
-#                    )
-
-
-# model.save("Mood Analysis Model.h5")
 model = tf.keras.models.load_model(filepath='./mood-app-python/Mood Analysis Model.h5')
 
 emotions_emoji_dict = {"joy" : emoji.emojize(":joy:"), "sadness" : emoji.emojize(":cry:"), "anger" : emoji.emojize(":angry:"), "fear" : emoji.emojize(":fearful:"), "love" :emoji.emojize(":heart:") , "surprise" : emoji.emojize(":open_mouth:") }
